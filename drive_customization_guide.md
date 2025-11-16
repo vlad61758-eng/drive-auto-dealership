@@ -1,86 +1,84 @@
-Документація для Налаштування Вебсайту "DRIVE Auto Dealership"
+Documentation for "DRIVE Auto Dealership" Website Template
 
-Вітаю! Цей посібник містить чіткі інструкції щодо редагування та фіналізації вашого преміального шаблону "DRIVE Auto Dealership" перед його передачею кінцевому клієнту.
+Welcome! This guide provides clear, step-by-step instructions for editing and finalizing your premium "DRIVE Auto Dealership" template before handing it over to the end client.
 
-Усі зміни вносяться безпосередньо у файл index.html.
+All necessary modifications are contained within the index.html file.
 
-1. Персоналізація Контенту та Бренда
+1. Content and Branding Customization
 
-Ці кроки стосуються заміни мок-даних на реальну інформацію від клієнта.
+These steps focus on replacing mock data with the client's actual information.
 
-1.1. Кольорова Схема (Золотий Акцент)
+1.1. Color Scheme Adjustment (Gold Accent)
 
-Щоб змінити золотий акцент на інший колір (наприклад, червоний або сріблястий), змініть лише один рядок у секції <script> у <head>:
+To change the core gold accent color to another brand color (e.g., red or silver), you need to modify only one line in the <script> section within the <head>:
 
-Знайдіть:
+Locate:
 
 'accent-gold': '#ffbf00', /* Gold accent */
 
 
-Дія: Замініть #ffbf00 (HEX-код золотого) на новий HEX-код кольору, щоб він застосувався до всіх кнопок, заголовків та акцентів.
+Action: Replace #ffbf00 (the HEX code for gold) with the new desired HEX color code. This single change applies the new accent color to all buttons, headings, and design elements across the site.
 
-1.2. Оновлення Тексту та Заголовків
+1.2. Updating Text and Headings
 
-Назва (Title): Змініть текст у тегу <title> на назву автосалону клієнта.
+Title: Change the text in the <title> tag to reflect the client's dealership name.
 
-Секція Hero: Оновіть головний заголовок (<h1>) та підзаголовок (<p>) на унікальний маркетинговий текст клієнта.
+Hero Section: Update the main headline (<h1>) and the sub-paragraph (<p>) with the client's unique marketing message.
 
-1.3. Секція Featured Models (Інвентар)
+Services Section: Customize the titles and descriptions within the three service cards (Flexible Financing, Certified Service & Repair, etc.).
 
-Кожна картка автомобіля має містити актуальні дані:
+1.3. Featured Models Section (Inventory Cards)
 
-Зображення-Заглушки: Замініть URL у тегу <img> на реальні фотографії автомобілів клієнта.
+Each car card must be updated with current inventory data:
+
+Placeholder Images: Replace the URL in the <img> tag with the actual photo URLs of the client's vehicles.
 
 <img src="[https://placehold.co/600x400/262d3a/FFFFFF?text=Sports+Sedan](https://placehold.co/600x400/262d3a/FFFFFF?text=Sports+Sedan)" 
      alt="Sports Sedan" 
      class="w-full h-48 object-cover object-center">
 
 
-
-Дані: Оновіть модель, опис, ціну та статус (New/Pre-Owned):
+Data: Update the model name, performance description, price, and status (New/Pre-Owned):
 
 <h3 class="text-xl font-bold mb-2 text-accent-gold">Sportiva S-500</h3>
 <p class="text-gray-400 mb-4 text-sm">High performance and flawless style. 0-60 mph in 4.0 seconds.</p>
 <span class="text-2xl font-extrabold text-white">$95,000</span>
 
 
+2. Finalization and Client Handoff
 
-2. Фіналізація та Передача Клієнту (Продаж)
+These steps ensure the website is fully owned by the client and professional for final delivery.
 
-Ці кроки гарантують, що сайт є повністю власністю клієнта і не містить вашої робочої атрибуції.
+2.1. Removing Developer Attribution in the Footer
 
-2.1. Видалення Вашої Атрибуції у Футері
+To make the site "clean" for the client, your developer note must be removed from the visible footer. Your professional attribution in the HTML comments remains, validating your authorship.
 
-Видаливши цей елемент, ви робите сайт "чистим" для продажу. Ваша професійна атрибуція в коментарях (Author/Developer: Vladyslav Baklytskyi) залишається у коді, підтверджуючи ваше авторство.
-
-Знайдіть рядок у секції <footer>:
+Locate the line in the <footer> section:
 
 <!-- Custom Attribution Line (Client instructions: REMOVE this line or replace with client's business name after sale) -->
 <p class="mt-1 text-sm text-accent-gold">--- REMOVE THIS LINE OR REPLACE WITH CLIENT'S NAME ---</p>
 
 
+Action: Delete this entire <p> block.
 
-Дія: Видаліть увесь цей блок <p> повністю, або замініть текст на назву компанії клієнта.
+2.2. Connecting the Contact Form (CRITICAL)
 
-2.2. Підключення Форми Контактів (Критично)
+The "Get in Touch" form currently only simulates a successful submission (for demonstration). For a real client, it must send actual emails.
 
-Форма "Get in Touch" зараз лише імітує відправку, але не надсилає реальні листи. Для клієнта це має бути функціонально!
+Recommended Method: Using Formspree or FormSubmit
 
-Рекомендований метод: Використання Formspree
+The client must register with a service (like Formspree) and obtain a unique submission URL (e.g., https://formspree.io/f/xyza123).
 
-Створіть URL для форми клієнта на Formspree (наприклад, https://formspree.io/f/xyza123).
+Locate the <form> tag in the #contact section in index.html.
 
-Знайдіть тег <form> у секції #contact.
+Action: Remove the onsubmit="handleFormSubmit(event)" attribute from the <form> tag.
 
-Видаліть з тегу атрибут onsubmit="handleFormSubmit(event)"
+Add the action attribute with the client's URL and method="POST":
 
-Додайте атрибут action та method="POST":
-
-<form id="contact-form" method="POST" action="[https://formspree.io/](https://formspree.io/)">
-    <!-- Поля форми залишаються незмінними -->
+<form id="contact-form" method="POST" action="[CLIENT'S FORMSPREE URL HERE]">
+    <!-- All form fields remain unchanged -->
     ...
 </form>
 
 
-
-Дія: Видаліть функцію handleFormSubmit та увесь тег <script> у кінці файлу, оскільки Formspree обробляє відправку самостійно.
+Action: After the action attribute is added, you can also safely delete the entire <script> tag at the very end of the file, as the external service will handle the form logic.

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRIVE Auto Dealership - Premium Vehicles</title>
+
+    <!-- 
+        ======================================================================================
+        DRIVE AUTO DEALERSHIP WEBSITE TEMPLATE
+        ======================================================================================
+        Project: Premium Single-Page Auto Dealership Presentation
+        Client Market: USA (Language: English, Currency: USD)
+        Date of Creation: November 2025
+        Author/Developer: Vladyslav Baklytskyi - Custom Web Solutions
+        Version: 1.0.0
+
+        Description: 
+        This is a modern, responsive single-page application built using Tailwind CSS. 
+        It features a dark, premium aesthetic suitable for high-end vehicle sales. 
+        The site structure includes Hero, Inventory, Services, and Contact sections.
+        All styles and scripts are fully contained within this single HTML file.
+        ======================================================================================
+    -->
+    
+    <!-- Tailwind CSS Inclusion -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font Setup -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* Dark background */
+            color: #f0f8ff; /* Light text */
+        }
+        /* Responsive Button Styles */
+        .btn-primary {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(234, 179, 8, 0.4);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'accent-gold': '#ffbf00', /* Gold accent */
+                        'dark-bg': '#0d1117',
+                        'card-bg': '#161b22',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Section -->
+    <header class="sticky top-0 z-50 bg-dark-bg/90 backdrop-blur-sm shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <span class="text-2xl font-extrabold text-accent-gold tracking-wider">
+                        DRIVE <span class="text-white font-light">AUTO</span>
+                    </span>
+                </div>
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-white hover:text-accent-gold transition duration-150">Home</a>
+                    <a href="#models" class="text-white hover:text-accent-gold transition duration-150">Inventory</a>
+                    <a href="#services" class="text-white hover:text-accent-gold transition duration-150">Services</a>
+                    <a href="#contact" class="px-3 py-1 bg-accent-gold text-dark-bg font-semibold rounded-full hover:bg-yellow-600 transition duration-150">Contact Us</a>
+                </nav>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-white hover:text-accent-gold hover:bg-card-bg focus:outline-none focus:ring-2 focus:ring-accent-gold" aria-expanded="false">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-dark-bg/95 shadow-xl py-2 transition-all duration-300 ease-in-out">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-card-bg hover:text-accent-gold w-full text-center">Home</a>
+                <a href="#models" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-card-bg hover:text-accent-gold w-full text-center">Inventory</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-card-bg hover:text-accent-gold w-full text-center">Services</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium bg-accent-gold text-dark-bg hover:bg-yellow-600 w-1/2 mt-2 text-center">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Hero Section -->
+        <section id="home" class="relative overflow-hidden pt-16 md:pt-0">
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+                <!-- Car Background (Placeholder) -->
+                <div class="absolute inset-0 bg-cover bg-center opacity-30" 
+                     style="background-image: url('https://placehold.co/1200x800/161b22/FFFFFF?text=Premium+Vehicle')">
+                </div>
+
+                <div class="relative z-10 lg:w-1/2">
+                    <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-4">
+                        Feel the Road.<br><span class="text-accent-gold">Choose Your DRIVE.</span>
+                    </h1>
+                    <p class="text-lg text-gray-300 mb-8 max-w-md">
+                        An exclusive selection of new and pre-owned premium vehicles. Find your perfect match today.
+                    </p>
+                    <a href="#models" class="btn-primary inline-block px-8 py-3 text-lg font-bold bg-accent-gold text-dark-bg rounded-lg shadow-xl hover:bg-yellow-600 transition duration-300">
+                        View Inventory
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Featured Models Section -->
+        <section id="models" class="py-16 sm:py-24 bg-card-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-12">
+                    Featured <span class="text-accent-gold">Models</span>
+                </h2>
+                
+                <!-- Car Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Card 1 -->
+                    <div class="bg-dark-bg rounded-xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition duration-300 ease-in-out">
+                        <img src="https://placehold.co/600x400/262d3a/FFFFFF?text=Sports+Sedan" 
+                             alt="Sports Sedan" 
+                             class="w-full h-48 object-cover object-center">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-accent-gold">Sportiva S-500</h3>
+                            <p class="text-gray-400 mb-4 text-sm">High performance and flawless style. 0-60 mph in 4.0 seconds.</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-2xl font-extrabold text-white">$95,000</span>
+                                <span class="text-sm text-gray-500 bg-card-bg p-1 rounded-full px-3">New</span>
+                            </div>
+                            <a href="#" class="block w-full text-center btn-primary px-4 py-2 bg-accent-gold text-dark-bg rounded-lg font-semibold hover:bg-yellow-600">
+                                Details
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-dark-bg rounded-xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition duration-300 ease-in-out">
+                        <img src="https://placehold.co/600x400/262d3a/FFFFFF?text=Elegant+Crossover" 
+                             alt="Elegant Crossover" 
+                             class="w-full h-48 object-cover object-center">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-accent-gold">Urban X-Pro</h3>
+                            <p class="text-gray-400 mb-4 text-sm">Comfortable crossover for city and travel. AWD, 7-seater option.</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-2xl font-extrabold text-white">$62,500</span>
+                                <span class="text-sm text-gray-500 bg-card-bg p-1 rounded-full px-3">New</span>
+                            </div>
+                            <a href="#" class="block w-full text-center btn-primary px-4 py-2 bg-accent-gold text-dark-bg rounded-lg font-semibold hover:bg-yellow-600">
+                                Details
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-dark-bg rounded-xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition duration-300 ease-in-out">
+                        <img src="https://placehold.co/600x400/262d3a/FFFFFF?text=Classic+Convertible" 
+                             alt="Classic Convertible" 
+                             class="w-full h-48 object-cover object-center">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-accent-gold">Retro C-90</h3>
+                            <p class="text-gray-400 mb-4 text-sm">Classic design meets modern tech. Low mileage, highly maintained.</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-2xl font-extrabold text-white">$41,900</span>
+                                <span class="text-sm text-gray-500 bg-card-bg p-1 rounded-full px-3">Pre-Owned</span>
+                            </div>
+                            <a href="#" class="block w-full text-center btn-primary px-4 py-2 bg-accent-gold text-dark-bg rounded-lg font-semibold hover:bg-yellow-600">
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Services Section -->
+        <section id="services" class="py-16 sm:py-24 bg-dark-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-12">
+                    Our <span class="text-accent-gold">Services</span>
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    
+                    <!-- Service 1: Financing -->
+                    <div class="p-8 bg-card-bg rounded-xl shadow-xl border-t-4 border-accent-gold">
+                        <div class="text-accent-gold mb-4 mx-auto w-12 h-12">
+                            <!-- SVG Icon: Finance -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full h-full">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.063 60.063 0 0 1 1.5-3.03l1.77-5.31C6.273 8.356 8.5 7.001 10.975 7V3.5h2.05c1.11 0 2.193.593 2.768 1.587l.951 1.63A4 4 0 0 0 19 8.5c1.077 0 2.115-.429 2.879-1.2l.551-.57a.75.75 0 0 0-.256-1.157 59.904 59.904 0 0 0-7.659-4.225.75.75 0 0 0-.858 0A59.904 59.904 0 0 0 2.25 5.597a.75.75 0 0 0-.256 1.157l.551.57c.764.771 1.802 1.2 2.879 1.2a4 4 0 0 0 2.107-.633l.951-1.63c.575-.994 1.658-1.587 2.768-1.587h2.05v3.5c2.475 0 4.7.994 6.136 3.093l1.77 5.31a60.063 60.063 0 0 1 1.5 3.03H2.25Z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2 text-white">Flexible Financing</h4>
+                        <p class="text-gray-400 text-sm">We offer low-interest financing and leasing options tailored to your needs.</p>
+                    </div>
+
+                    <!-- Service 2: Maintenance -->
+                    <div class="p-8 bg-card-bg rounded-xl shadow-xl border-t-4 border-accent-gold">
+                        <div class="text-accent-gold mb-4 mx-auto w-12 h-12">
+                            <!-- SVG Icon: Service -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full h-full">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.74 20.25v-8.5A2.25 2.25 0 0 1 7 9.5h6v8a2.25 2.25 0 0 0 4.5 0v-8a2.25 2.25 0 0 1 2.25-2.25h2.25m-18 6.75h9m-.563 4.28a.75.75 0 0 0 1.06 0l2.67-2.67c.12-.12.21-.265.275-.42l1.65-4.949a.75.75 0 0 0-.153-.787c-.2-.17-.46-.255-.72-.255H4.5a.75.75 0 0 0-.72.54l1.65 4.948c.065.155.155.3.275.42l2.67 2.67ZM4.5 10.5V1.5" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2 text-white">Certified Service & Repair</h4>
+                        <p class="text-gray-400 text-sm">Highest quality warranty and post-warranty service at our authorized centers.</p>
+                    </div>
+
+                    <!-- Service 3: Test Drive -->
+                    <div class="p-8 bg-card-bg rounded-xl shadow-xl border-t-4 border-accent-gold">
+                        <div class="text-accent-gold mb-4 mx-auto w-12 h-12">
+                            <!-- SVG Icon: Test Drive -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full h-full">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2 text-white">Schedule a Test Drive</h4>
+                        <p class="text-gray-400 text-sm">Book a personal test drive of any model to experience the vehicle firsthand.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Contact Section -->
+        <section id="contact" class="py-16 sm:py-24 bg-dark-bg border-t border-card-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-12">
+                    Get in <span class="text-accent-gold">Touch</span>
+                </h2>
+                
+                <div class="max-w-xl mx-auto bg-card-bg p-8 md:p-10 rounded-xl shadow-2xl">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)">
+                        <div class="mb-6">
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
+                            <input type="text" id="name" name="name" required
+                                   class="w-full px-4 py-3 bg-dark-bg border border-gray-700 rounded-lg focus:ring-accent-gold focus:border-accent-gold text-white"
+                                   placeholder="John Doe">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" required
+                                   class="w-full px-4 py-3 bg-dark-bg border border-gray-700 rounded-lg focus:ring-accent-gold focus:border-accent-gold text-white"
+                                   placeholder="you@example.com">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" required
+                                      class="w-full px-4 py-3 bg-dark-bg border border-gray-700 rounded-lg focus:ring-accent-gold focus:border-accent-gold text-white"
+                                      placeholder="I am interested in the..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full px-4 py-3 text-lg font-bold bg-accent-gold text-dark-bg rounded-lg hover:bg-yellow-600 transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                    
+                    <!-- Success/Error Message (hidden) -->
+                    <div id="status-message" class="mt-4 p-4 rounded-lg text-center hidden" role="alert"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-bg border-t border-card-bg py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+            <p>&copy; 2025 DRIVE Auto Dealership. All rights reserved.</p>
+            <!-- Custom Attribution Line (Client instructions: REMOVE this line or replace with client's business name after sale) -->
+            <p class="mt-1 text-sm text-accent-gold">--- REMOVE THIS LINE OR REPLACE WITH CLIENT'S NAME ---</p>
+            <div class="mt-2 text-sm">
+                <a href="#" class="hover:text-accent-gold mx-2">Privacy Policy</a>
+                <span class="text-gray-700">|</span>
+                <a href="#" class="hover:text-accent-gold mx-2">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle for responsiveness
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Hide mobile menu on click
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                }
+                
+                // Smooth scroll action
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling (Mockup)
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            const form = document.getElementById('contact-form');
+            const statusMessage = document.getElementById('status-message');
+            const submitButton = form.querySelector('button[type="submit"]');
+
+            // Collect form data
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                message: formData.get('message')
+            };
+
+            // Imitate sending data to a server
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+
+            setTimeout(() => {
+                // Mock success response
+                const success = Math.random() > 0.1; // 90% success rate
+
+                submitButton.textContent = 'Send Message';
+                submitButton.disabled = false;
+                
+                statusMessage.classList.remove('hidden');
+
+                if (success) {
+                    statusMessage.textContent = 'Thank you! Your message has been successfully sent. We will contact you shortly.';
+                    statusMessage.className = 'mt-4 p-4 rounded-lg text-center bg-green-900 text-green-300';
+                    form.reset(); // Clear the form
+                } else {
+                    statusMessage.textContent = 'Sorry, an error occurred during submission. Please try again or call us directly.';
+                    statusMessage.className = 'mt-4 p-4 rounded-lg text-center bg-red-900 text-red-300';
+                }
+
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    statusMessage.classList.add('hidden');
+                }, 5000);
+
+            }, 1500); // 1.5 second delay to simulate network request
+        }
+    </script>
+</body>
+</html>
